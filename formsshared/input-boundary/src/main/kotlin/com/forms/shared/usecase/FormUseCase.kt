@@ -8,4 +8,5 @@ import org.springframework.data.domain.Pageable
 interface FormUseCase {
     fun findAvailableFormToAnsewer(userId: Long, pageable: Pageable) : Page<FormInfoInputDTO>
     fun createForm(form: FormRequestInputDTO, userId: Long)
+    fun updateRankingPointsAnsewered(formId: Long, userId: Long)
 }

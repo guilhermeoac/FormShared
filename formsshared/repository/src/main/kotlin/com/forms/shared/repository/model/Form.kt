@@ -19,15 +19,15 @@ data class Form (
 		@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_form_id_seq")
 		val id: Long? = null,
 		@ManyToOne()
-		val user: User,
+		val user: User? = null,
 		@Column(name = "ext_form_id", nullable = false)
-		val extFormId: String,
+		val extFormId: String? = null,
 		@Column(name = "url", nullable = false)
-		val url: String,
+		val url: String? = null,
 		@Column(name = "title", nullable = false)
-		val title: String,
+		val title: String? = null,
 		@Column(name = "fill_time", nullable = false)
-		val fillTime: Long,
+		val fillTime: Long? = null,
 		@JdbcTypeCode(SqlTypes.ARRAY)
 		@Column(name = "users_filled",columnDefinition = "int4[]", nullable = true)
 		val usersFilled: List<Int>? = null

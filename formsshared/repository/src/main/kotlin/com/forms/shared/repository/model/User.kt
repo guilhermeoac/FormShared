@@ -23,7 +23,7 @@ data class User (
 		@Column(name = "email", nullable = false)
 		val email: String? = null,
 		@Column(name = "ranking", nullable = false)
-		val ranking: String? = null,
+		val ranking: Long? = null,
 		@OneToMany(mappedBy="user")
 		val  forms: List<Form>? = null
 
@@ -32,7 +32,7 @@ data class User (
 	constructor() : this(
 			id = Long.MAX_VALUE,
 			email = "",
-			ranking = "",
+			ranking = Long.MAX_VALUE,
 			forms = emptyList<Form>()
 
 	)
