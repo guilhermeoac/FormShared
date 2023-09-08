@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
+import jakarta.persistence.SequenceGenerator
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 import org.hibernate.annotations.JdbcTypeCode
@@ -15,7 +16,9 @@ import org.hibernate.type.SqlTypes
 @Entity
 @Table(name = "tb_response")
 data class Response (
-		@Id @GeneratedValue(strategy = GenerationType.AUTO)
+		@Id
+		@SequenceGenerator(name = "tb_response_id_seq", sequenceName = "tb_response_id_seq")
+		@GeneratedValue(strategy = GenerationType.AUTO)
 		val id: Long? = null,
 		@ManyToOne()
 		val user: User,

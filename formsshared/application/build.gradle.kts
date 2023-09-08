@@ -12,6 +12,9 @@ repositories {
 
 dependencies {
     implementation(project(":input-boundary"))
+    implementation(project(":output-boundary"))
+    implementation(project(":web"))
+    implementation(project(":usecase"))
     implementation(project(":repository"))
     implementation(kotlin("stdlib"))
     implementation("org.springframework.boot:spring-boot-autoconfigure:3.1.3")

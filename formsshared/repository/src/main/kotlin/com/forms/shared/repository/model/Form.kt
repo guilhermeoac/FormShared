@@ -5,8 +5,8 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
+import jakarta.persistence.SequenceGenerator
 import jakarta.persistence.Table
 import org.hibernate.annotations.JdbcTypeCode
 import org.hibernate.type.SqlTypes
@@ -14,7 +14,9 @@ import org.hibernate.type.SqlTypes
 @Entity()
 @Table(name = "tb_form")
 data class Form (
-		@Id @GeneratedValue(strategy = GenerationType.AUTO)
+		@Id
+		@SequenceGenerator(name = "tb_form_id_seq", sequenceName = "tb_form_id_seq", allocationSize = 1)
+		@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_form_id_seq")
 		val id: Long? = null,
 		@ManyToOne()
 		val user: User,
@@ -28,7 +30,7 @@ data class Form (
 		val fillTime: Long,
 		@JdbcTypeCode(SqlTypes.ARRAY)
 		@Column(name = "users_filled",columnDefinition = "int4[]", nullable = true)
-		val usersFilled: List<Int>
+		val usersFilled: List<Int>? = null
 	) {
 
 	constructor() : this(
@@ -41,4 +43,5 @@ data class Form (
 			usersFilled = emptyList<Int>()
 
 	)
+
 }

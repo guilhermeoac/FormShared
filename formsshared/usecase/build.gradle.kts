@@ -1,4 +1,3 @@
-
 plugins {
     id("java")
 }
@@ -10,9 +9,8 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    implementation(project(mapOf("path" to ":input-boundary")))
     implementation(project(mapOf("path" to ":output-boundary")))
-    runtimeOnly("org.postgresql:postgresql:42.6.0")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc:3.1.3")
 }
 
 tasks.test {
