@@ -32,6 +32,8 @@ subprojects {
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
 		implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.22")
 		testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.3")
+		implementation("org.springframework.data:spring-data-commons:3.1.3")
+		implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.1.3")
 	}
 
 	apply {

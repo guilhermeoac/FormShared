@@ -7,10 +7,12 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToMany
+import jakarta.persistence.Table
 import org.hibernate.annotations.JdbcTypeCode
 import org.hibernate.type.SqlTypes
 
-@Entity(name = "tb_user")
+@Entity
+@Table(name = "tb_user")
 data class User (
 		@Id @GeneratedValue(strategy = GenerationType.AUTO)
 		val id: Long? = null,
@@ -19,7 +21,6 @@ data class User (
 		@Column(name = "ranking", nullable = false)
 		val ranking: String,
 		@OneToMany(mappedBy="user")
-		@JoinColumn(name="user_id", nullable=false, updatable=false)
 		val  forms: List<Form>
 
 	) {
