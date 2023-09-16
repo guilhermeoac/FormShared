@@ -10,6 +10,8 @@ import {
 
 import FormList from './Pages/FormList/FormList'
 import NewForm from './Pages/NewForm/NewForm'
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
 const App = () => {
   let routes = useRoutes([
@@ -22,9 +24,11 @@ const App = () => {
 
 const AppWrapper = () => {
   return (
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   );
 };
 
